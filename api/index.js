@@ -19,7 +19,7 @@
     const isMeta = metaIPs.some(r => ip.startsWith(r));                                                                                                                                  
                                                                                                                                                                                            
     if (isBot || isMeta) {
-      res.writeHead(302, { Location: 'https://go.aff.bateu.bet.br/dgukyqey?shareCode=BFDD2P6T9S3&afp=bingo&home=1' });                                                                                                     
+      res.writeHead(302, { Location: 'https://grupojogadorcaro.com.br/quem-e-jota' });                                                                                                     
       res.end();                                                                                                                                                                           
       return;
     }                                                                                                                                                                                      
