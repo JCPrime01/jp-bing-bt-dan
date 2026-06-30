@@ -22,8 +22,28 @@
       res.writeHead(302, { Location: 'https://grupojogadorcaro.com.br/quem-e-jota' });                                                                                                     
       res.end();                                                                                                                                                                           
       return;
-    }                                                                                                                                                                                      
-                                                                                                                                                                                         
-    res.writeHead(302, { Location: 'https://go.aff.bateu.bet.br/dgukyqey?shareCode=72AAJ7SMKDC&afp=bingo&home=1' });                                                                                                                          
-    res.end();                                                                                                                                                                           
+       }
+    
+    const url = 'https://go.aff.bateu.bet.br/l9da18p1?campaign_id=31558'
+
+    const shareCode = '&shareCode=QY3MR187GKA'
+    
+    const afp = '&afp=bingo'
+
+    const source = '&utm_medium=da'
+    
+    const source = '&home=1'
+
+    const destino = new URL(url + shareCode + afp + source)
+
+    const entrada = new URL(req.url, `https://${req.headers.host}`).searchParams;
+
+    for (const [chave, valor] of entrada) {
+      if (chave.startsWith('utm_') || chave === 'source_id' || chave === 'fbclid' || chave === 'gclid') {
+        destino.searchParams.set(chave, valor);
+      }
+    }
+
+    res.writeHead(302, { Location: destino.toString() });
+    res.end();
   }
